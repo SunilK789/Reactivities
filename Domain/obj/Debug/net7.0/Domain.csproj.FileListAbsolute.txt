@@ -1,0 +1,12 @@
+D:\Demo Code\cSharpDemo\Reactivities\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\Demo Code\cSharpDemo\Reactivities\Domain\bin\Debug\net7.0\Domain.dll
+D:\Demo Code\cSharpDemo\Reactivities\Domain\bin\Debug\net7.0\Domain.pdb
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\Domain.dll
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\Domain.pdb
+D:\Demo Code\cSharpDemo\Reactivities\Domain\obj\Debug\net7.0\ref\Domain.dll

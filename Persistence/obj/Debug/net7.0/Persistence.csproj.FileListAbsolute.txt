@@ -1,0 +1,15 @@
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\bin\Debug\net7.0\Persistence.deps.json
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\bin\Debug\net7.0\Persistence.dll
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\bin\Debug\net7.0\Persistence.pdb
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\bin\Debug\net7.0\Domain.dll
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\bin\Debug\net7.0\Domain.pdb
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.csproj.AssemblyReference.cache
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.AssemblyInfoInputs.cache
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.AssemblyInfo.cs
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.csproj.CoreCompileInputs.cache
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.csproj.CopyComplete
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.dll
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\refint\Persistence.dll
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\Persistence.pdb
+D:\Demo Code\cSharpDemo\Reactivities\Persistence\obj\Debug\net7.0\ref\Persistence.dll
