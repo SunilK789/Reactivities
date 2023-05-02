@@ -31,9 +31,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-node_modules/
-bin/
-obj/
+*.db-shm
+*.db-wal
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
