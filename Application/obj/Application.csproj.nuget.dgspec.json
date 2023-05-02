@@ -36,8 +36,8 @@
               "D:\\Demo Code\\cSharpDemo\\Reactivities\\Domain\\Domain.csproj": {
                 "projectPath": "D:\\Demo Code\\cSharpDemo\\Reactivities\\Domain\\Domain.csproj"
               },
-              "D:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj": {
-                "projectPath": "D:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj"
+              "d:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj": {
+                "projectPath": "d:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -51,6 +51,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -131,14 +137,14 @@
         }
       }
     },
-    "D:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj": {
+    "d:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "d:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "D:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectPath": "d:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
-        "outputPath": "D:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\obj\\",
+        "outputPath": "d:\\Demo Code\\cSharpDemo\\Reactivities\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
