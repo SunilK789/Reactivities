@@ -11,36 +11,12 @@ import { useStore } from "../stores/store";
 import { observer } from "mobx-react-lite";
 
 function App() {
-
 	const {activityStore} = useStore();
 	const [activities, setActivities] = useState<Activity[]>([]);
-	const [submitting, setSubmitting] = useState(false);
 
-	const createOrEdit = (activity: Activity) => {
-		setSubmitting(true);
-		if(activity.id){
-			agent.Activities.update(activity).then(()=>{
-				setActivities([
-					...activities.filter((x) => x.id !== activity.id),
-					activity,
-			  ]);			
-			  setSubmitting(false);
-			})
-		}
-		else{
-			activity.id = uuid();
-			agent.Activities.create(activity).then(()=>{
-				setActivities([...activities, activity]);
-			  	setSubmitting(false);
-			})		
-		}
-	};
-
-	const handleDeleteActivity = (id: string) => {
-		setSubmitting(true);
+	const handleDeleteActivity = (id: string) => {		
 		agent.Activities.delete(id).then(()=>{
-			setActivities([...activities.filter((x) => x.id !== id)]);
-			setSubmitting(false);
+			setActivities([...activities.filter((x) => x.id !== id)]);			
 		})
 		
 	};
@@ -56,10 +32,8 @@ function App() {
 			<NavBar></NavBar>			
 			<Container style={{ marginTop: "7em" }}>
 				<ActivityDashboard
-					activities={activityStore.activities}
-					createOrEdit={createOrEdit}
-					deleteActivity={handleDeleteActivity}
-					submitting={submitting}
+					activities={activityStore.activities}					
+					deleteActivity={handleDeleteActivity}					
 				></ActivityDashboard>
 			</Container>
 		</>
