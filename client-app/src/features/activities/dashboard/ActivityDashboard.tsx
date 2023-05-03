@@ -6,13 +6,7 @@ import ActivityForm from "../form/ActivityForm";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
 
-interface Props {
-	activities: Activity[];		
-	deleteActivity:(id: string)=>void;
-}
-const ActivityDashboard = ({ activities,
-	 deleteActivity }: Props) => {
-
+const ActivityDashboard = () => {
 	const {activityStore} = useStore();
 	const {selectedActivity, editMode} = activityStore;
 	
@@ -20,10 +14,7 @@ const ActivityDashboard = ({ activities,
 		<div>
 			<Grid>
 				<Grid.Column width='10'>
-					<ActivityList 
-						activities={activities}						
-						deleteActivity={deleteActivity}
-					></ActivityList>
+					<ActivityList />
 				</Grid.Column>
                 <Grid.Column width='6'>
                     {selectedActivity && !editMode &&
