@@ -1,14 +1,17 @@
 import React, { SyntheticEvent, useState } from 'react'
 import { Activity } from '../../../app/models/activity'
 import { Button, Item, Label, Segment } from 'semantic-ui-react';
+import { useStore } from '../../../app/stores/store';
 interface Props{
       activities:Activity[];
-      selectActivity: (id: string) => void;
       deleteActivity:(id: string)=>void;
       submitting: boolean;
     
 }
-const ActivityList = ({activities,selectActivity,deleteActivity, submitting}: Props) => {
+const ActivityList = ({activities,deleteActivity, submitting}: Props) => {
+  const {activityStore} = useStore();
+	const {selectActivity} = activityStore;
+
   const [target, setTarget] = useState('');
 
   const handleActivityDelete=(e: SyntheticEvent<HTMLButtonElement>, id: string)=>{

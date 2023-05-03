@@ -1,49 +1,39 @@
-import React from "react";
 import { Grid } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
 import ActivityList from "./ActivityList";
 import ActivityDetails from "../details/ActivityDetails";
 import ActivityForm from "../form/ActivityForm";
+import { useStore } from "../../../app/stores/store";
+import { observer } from "mobx-react-lite";
 
 interface Props {
-	activities: Activity[];
-	selectedActivity: Activity | undefined;
-	selectActivity: (id: string) => void;
-	cancelActivity:()=>void;
-	formOpen: (id: string) => void;
-	formClose: () =>void;
-	editMode:boolean;
+	activities: Activity[];	
 	createOrEdit:(activity : Activity)=> void;
 	deleteActivity:(id: string)=>void;
 	submitting:boolean;
 }
-const ActivityDashboard = ({ activities,selectedActivity,
-	selectActivity,cancelActivity,
-	formOpen, formClose, editMode, createOrEdit,deleteActivity,submitting }: Props) => {
+const ActivityDashboard = ({ activities,
+	 createOrEdit,deleteActivity,submitting }: Props) => {
 
+	const {activityStore} = useStore();
+	const {selectedActivity, editMode} = activityStore;
+	
 	return (
 		<div>
 			<Grid>
 				<Grid.Column width='10'>
 					<ActivityList 
-						activities={activities}
-						selectActivity={selectActivity}
+						activities={activities}						
 						deleteActivity={deleteActivity}
 						submitting={submitting}
 					></ActivityList>
 				</Grid.Column>
                 <Grid.Column width='6'>
                     {selectedActivity && !editMode &&
-					<ActivityDetails 
-						activity={selectedActivity} 
-						cancelActivity={cancelActivity}
-						formOpen={formOpen}
-					/>                   
+					<ActivityDetails />                   
                     }
 					{editMode && 
                     <ActivityForm 
-						activity={selectedActivity} 
-						formClose={formClose} 
 						createOrEdit={createOrEdit}
 						submitting={submitting}
 					/>}
@@ -53,4 +43,4 @@ const ActivityDashboard = ({ activities,selectedActivity,
 	);
 };
 
-export default ActivityDashboard;
+export default observer(ActivityDashboard); 
