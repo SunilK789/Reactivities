@@ -1,28 +1,42 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Activity } from "../../../app/models/activity";
+import LoadingComponent from "../../../app/layout/LoadingComponent";
+import {v4 as uuid} from 'uuid';
 
 const ActivityForm = () => {
 	 const {activityStore} = useStore();
-	const {selectedActivity, closeForm, createActivity, updateActivity, loading} = activityStore;
+	const {createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
+	const {id} = useParams();
+	const navigate = useNavigate();
 
-	var initialState = selectedActivity ?? {
-    	id:'',
+	const [activity, setActivity] = useState<Activity>({
+		id:'',
 		title: "",
 		description: "",
 		category: "",
 		date: "",
 		city: "",
 		venue: "",
-	};
+	});	
 
-	const [activity, setActivity] = useState(initialState);
+	useEffect(()=>{
+		if(id) {
+			loadActivity(id).then(actity=>setActivity(actity!));
+		}
+	},[id, loadActivity])
 
 	const handeSubmitForm = () => {
-		activity.id 
-		? updateActivity(activity) 
-		: createActivity(activity);
+		if(!activity.id){
+			activity.id=uuid();
+			createActivity(activity).then(()=> navigate(`/activities/${activity.id}`));
+		}
+		else{
+			updateActivity(activity).then(()=> navigate(`/activities/${activity.id}`));
+		}
 	};
 
 	const handleInputChange = (
@@ -32,6 +46,8 @@ const ActivityForm = () => {
 		var { name, value } = e.target;
 		setActivity({ ...activity, [name]: value });
 	};
+
+	if(loadingInitial) return <LoadingComponent content="Loading activity..." />
 
 	return (
 		<>
@@ -76,7 +92,8 @@ const ActivityForm = () => {
 
 				<Button loading={loading} floated='right' positive type='submit' content='Submit' />
 				<Button
-					onClick={closeForm}
+					as={Link}
+					to={activity.id ? `/activities/${id}` : '/activities'}
 					floated='right'
 					basic
 					type='submit'
