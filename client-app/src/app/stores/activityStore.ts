@@ -14,8 +14,21 @@ export default class ActivityStore {
 		makeAutoObservable(this);
 	}
 
-	get activitiesByDate (){
-			return Array.from(this.activiyRegistory.values()).sort((a,b)=> Date.parse(b.date) - Date.parse(a.date));
+	get activitiesByDate() {
+		return Array.from(this.activiyRegistory.values()).sort(
+			(a, b) => Date.parse(b.date) - Date.parse(a.date)
+		);
+	}
+
+	get groupedActivities(){
+		return Object.entries(
+			this.activitiesByDate.reduce((activities, activity)=>{
+				const date = activity.date;
+				activities[date] = activities[date] ? [...activities[date], activity] : [activity];
+
+				return activities;
+			},{} as {[key: string]: Activity[]})
+		)
 	}
 
 	loadActivities = async () => {
@@ -34,41 +47,38 @@ export default class ActivityStore {
 		}
 	};
 
-	loadActivity= async (id: string)=>{
+	loadActivity = async (id: string) => {
 		this.setLoadingInitial(true);
 		let activity = this.getActivity(id);
-		if(activity) {
+		if (activity) {
 			this.selectedActivity = activity;
 			this.setLoadingInitial(false);
 			return activity;
-		}
-		else {
-			
+		} else {
 			try {
 				activity = await agent.Activities.details(id);
 				this.setActivity(activity);
-				runInAction(()=>{
+				runInAction(() => {
 					this.selectedActivity = activity;
-				})
-				
+				});
+
 				this.setLoadingInitial(false);
 				return activity;
 			} catch (error) {
 				console.log(error);
 				this.setLoadingInitial(false);
 			}
-			
 		}
-	}
+	};
 
 	private getActivity = (id: string) => {
 		return this.activiyRegistory.get(id);
-	}
+	};
 
-	private setActivity=(activity: Activity)=>{
-			activity.date = activity.date.split("T")[0];
-			this.activiyRegistory.set(activity.id, activity);
-	}
+	private setActivity = (activity: Activity) => {
+		activity.date = activity.date.split("T")[0];
+		this.activiyRegistory.set(activity.id, activity);
+	};
 
 	setLoadingInitial = (state: boolean) => {
 		this.loadingInitial = state;
@@ -112,20 +122,20 @@ export default class ActivityStore {
 		}
 	};
 
-    deleteActivity= async (id: string) =>{
-        this.loading = true;
+	deleteActivity = async (id: string) => {
+		this.loading = true;
 
-        try {
-            await agent.Activities.delete(id);
-            runInAction(()=>{
-                this.activiyRegistory.delete(id);
-                this.loading = false;
-            })
-        } catch (error) {
-            console.log(error);
-             runInAction(()=>{
-                this.loading = false;
-            })
-        }
-    }
+		try {
+			await agent.Activities.delete(id);
+			runInAction(() => {
+				this.activiyRegistory.delete(id);
+				this.loading = false;
+			});
+		} catch (error) {
+			console.log(error);
+			runInAction(() => {
+				this.loading = false;
+			});
+		}
+	};
 }
