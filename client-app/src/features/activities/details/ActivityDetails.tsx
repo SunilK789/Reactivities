@@ -8,7 +8,6 @@ import ActivityDetailedHeader from "./ActivityDetailedHeader";
 import ActivityDetailedChat from "./ActivityDetailedChat";
 import ActivityDetailedInfo from "./ActivityDetailedInfo";
 import ActivityDetailedSidebar from "./ActivityDetailedSidebar";
-import { act } from "@testing-library/react";
 
 const ActivityDetails = () => {
 	const { activityStore } = useStore();
