@@ -10,6 +10,7 @@ const NavBar = () => {
             <img src="/assets/logo.png" alt="logo" style={{marginRight: '10px'}}/>
         </Menu.Item>
         <Menu.Item as={NavLink} to='/activities' name='Activities'></Menu.Item>
+        <Menu.Item as={NavLink} to='/errors' name='Errors'></Menu.Item>
         <Menu.Item as={NavLink} to='/createActivity'>
             <Button positive content='Create Activity'></Button>
         </Menu.Item>
