@@ -3,6 +3,7 @@ import { Activity } from "../models/activity";
 import agent from "../api/agent";
 import { v4 as uuid } from "uuid";
 import { format } from "date-fns";
+import { store } from "./store";
 
 export default class ActivityStore {
 	activiyRegistory = new Map<string, Activity>();
@@ -77,6 +78,12 @@ export default class ActivityStore {
 	};
 
 	private setActivity = (activity: Activity) => {
+		var user = store.userStore.user;
+		if(user) {
+			activity.isGoing = activity.attendees!.some(a=>a.username === user?.username);
+			activity.isHost = activity.hostUsername === user.username;
+			activity.host= activity.attendees?.find(x=>x.username === activity.hostUsername);
+		}
 		activity.date = new Date(activity.date!);
 		this.activiyRegistory.set(activity.id, activity);
 	};
