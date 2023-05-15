@@ -19,12 +19,12 @@ namespace Application.Photos
             public IFormFile File { get; set; }
         }
 
-        public class Hander : IRequestHandler<Command, Result<Photo>>
+        public class Handler : IRequestHandler<Command, Result<Photo>>
         {
             private readonly DataContext _context;
             private readonly IPhotoAccessor _photoAccessor;
             private readonly IUserAccessor _userAccessor;
-            public Hander(DataContext context, IPhotoAccessor photoAccessor, IUserAccessor userAccessor)
+            public Handler(DataContext context, IPhotoAccessor photoAccessor, IUserAccessor userAccessor)
             {
                 _context = context;
                 _userAccessor = userAccessor;
@@ -54,7 +54,7 @@ namespace Application.Photos
 
                 if (result) return Result<Photo>.Success(photo);
 
-                return Result<Photo>.Failure("Problem adding phott");
+                return Result<Photo>.Failure("Problem adding photo");
             }
         }
     }
