@@ -81,7 +81,7 @@ const ActivityForm = () => {
 					{({ values: activity , handleSubmit, isValid, isSubmitting, dirty }) => (
 						<Form className='ui form' onSubmit={handleSubmit}>
 							<MyTextInput name="title" placeholder="title" />
-							<MyTextArea placeholder='Description' name='description' row={3} />
+							<MyTextArea placeholder='Description' name='description' rows={3} />
 							<MySelectInput options={categoryOptions} placeholder='Category' name='category' />
 							<MyDateInput 
 								placeholderText='Date' 
